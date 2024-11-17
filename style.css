@@ -103,3 +103,50 @@ input[type="number"]::-webkit-inner-spin-button {
   border: 1px solid;
 }
 
+@media (max-width: 500px) {
+
+
+  #container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  #num-bar {
+    border: none;
+  }
+
+  #input {
+    font-size: 18px; 
+    padding: 8px;
+  }
+
+  #grid {
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; 
+  }
+
+  .item {
+    height: 50px;
+    width: auto; 
+  }
+
+  .btn-calc, .btn-num {
+
+    font-size: 16px;
+        height: 100%;
+        width: 100%;
+  }
+
+  nav {
+    align-items: center;
+  }
+
+  nav > a {
+    margin: 5px 0;
+  }
+
+  nav > a > img {
+    height: 40px; /* Resize the logo */
+  }
+}
