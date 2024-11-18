@@ -27,8 +27,7 @@ numBtn.forEach(button => {
         //setting a condition for "=" so that it will evaluate instead of being shown in input bar
         else {
             try {
-                // Using a safer alternative to evaluate the expression, instead of using eval()
-                input.value = calculate(input.value);
+                input.value = eval(input.value);
             } catch (error) {
                 input.value = "Error";
             }
@@ -36,10 +35,3 @@ numBtn.forEach(button => {
     });
 });
 
-
-function calculate(expression) {
-    // Regex to ensure only numbers and basic operators are allowed
-    const safeExpression = expression.replace(/[^0-9+\-*/().]/g, "");
-    // returns the filtered expression which only contains numbers and mathematical operators
-    return Function(`'use strict'; return (${safeExpression})`)();
-}
