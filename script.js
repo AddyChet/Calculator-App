@@ -24,15 +24,21 @@ numBtn.forEach((button) => {
     //setting a condition for "=" so that it will evaluate instead of being shown in input bar
     else {
       try {
-        // Using a safer alternative to evaluate the expression, instead of using eval()
-        if (!input.value.includes("%")) {
-          input.value = eval(input.value);
+        // checking conditions
+
+        if (input.value !== "" && input.value !== "Error") {
+          
+          if (!input.value.includes("%")) {
+            input.value = eval(input.value);
+          } else {
+            const modifiedExpression = input.value.replace(
+              /(\d+)%/g,
+              "($1 / 100) *"
+            );
+            input.value = eval(modifiedExpression);
+          }
         } else {
-          const modifiedExpression = input.value.replace(
-            /(\d+)%/g,
-            "($1 / 100) *"
-          );
-          input.value = eval(modifiedExpression);
+          input.value = 0;
         }
       } catch (error) {
         input.value = "Error";
